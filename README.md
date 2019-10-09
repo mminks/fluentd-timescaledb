@@ -8,7 +8,7 @@ plugin `fluent-plugin-timescaledb`.
 In order to concatenate multiline logs separated in multiple events, this image also includes the
 `fluent-plugin-concat`.
 
-### Versions overview
+### Versions used
 
 | name | version |
 |---------------------------|:-----:|
@@ -17,7 +17,7 @@ In order to concatenate multiline logs separated in multiple events, this image 
 
 # Startup
 
-As it is not possible to start all services in one docker-compose.yml
+As it is not possible to start all services in one `docker-compose.yml`
 with the fluentd logging driver, we need to split up things a bit.
 
 #### 1. TimescaleDB & Fluentd
@@ -49,13 +49,19 @@ fe70ad5e282d        timescale/timescaledb:latest-pg11         "docker-entrypoint
 
 # Check for logs
 
-#### 1. In TimescaleDB
+#### 1. In fluentd container log
 
 ```
 docker logs -f fluentd-timescaledb_fluentd-timescaledb_1
 ```
 
-#### 2. In fluentd container log
+Every logging event should produce an entry in the Fluentd container:
+
+```
+TODO
+```
+
+#### 2. In TimescaleDB
 
 ```
 docker exec -ti fluentd-timescaledb_timescaledb_1 bash
@@ -67,6 +73,13 @@ psql -U logging
 \dt
 
 SELECT * FROM log_records ORDER BY time DESC LIMIT 100;
+```
+
+# Cleanup
+
+```
+docker-compose -f hello-world.yml down
+docker-compose -f fluentd-timescaledb.yml down
 ```
 
 # References
