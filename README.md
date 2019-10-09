@@ -1,5 +1,3 @@
-# WORK STILL IN PROGRESS
-
 # fluentd-timescaledb
 
 This image contains the open source data collector `Fluentd` together with the timescaledb output
@@ -7,6 +5,8 @@ plugin `fluent-plugin-timescaledb`.
 
 In order to concatenate multiline logs separated in multiple events, this image also includes the
 `fluent-plugin-concat`.
+
+A docker image is available under `mminks/fluentd-timescaledb:latest` if you want to use it in your environment. 
 
 ### Versions used
 
@@ -74,6 +74,10 @@ psql -U logging
 
 SELECT * FROM log_records ORDER BY time DESC LIMIT 100;
 ```
+
+# Improvements
+
+Right now there is a Fluentd parsing error. This needs to be fixed.
 
 # Cleanup
 
