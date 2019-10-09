@@ -6,7 +6,8 @@ plugin `fluent-plugin-timescaledb`.
 In order to concatenate multiline logs separated in multiple events, this image also includes the
 `fluent-plugin-concat`.
 
-A docker image is available under `mminks/fluentd-timescaledb:latest` if you want to use it in your environment. 
+A docker image is available under `mminks/fluentd-timescaledb:latest` if you want to use it in your environment.
+Please refer to [dockerhub](https://hub.docker.com/r/mminks/fluentd-timescaledb). 
 
 ### Versions used
 
