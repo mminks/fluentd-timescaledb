@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  hello-world:
+    image: nginxdemos/hello:plain-text
+    ports:
+      - "8080:80"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: "127.0.0.1:24224"
+        tag: "docker.{{.ID}}"
